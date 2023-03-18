@@ -1,29 +1,44 @@
+import javax.swing.JOptionPane;
 
 public class CalculadoraEspecial implements InterfazCalculadora {
 
-    public int sumarEnteros(int numero1, int numero2) {
-        return (numero1 + numero2) / 2;
+    @Override
+    public int sumarEnteros(int num1, int num2) {
+        int resultado = num1 + num2;
+        resultado /= 2;
+        JOptionPane.showMessageDialog(null, "El resultado es: " + resultado);
+        return resultado;
     }
 
-    public int restarEnteros(int numero1, int numero2) {
-        return (numero1 - numero2) / 2;
+    @Override
+    public int restarEnteros(int num1, int num2) {
+        int resultado = num1 - num2;
+        resultado /= 2;
+        JOptionPane.showMessageDialog(null, "El resultado es: " + resultado);
+        return resultado;
     }
 
-    public int multiplicarEnteros(int numero1, int numero2) {
-        return (numero1 * numero2) / 2;
+    @Override
+    public int multiplicarEnteros(int num1, int num2) {
+        int resultado = num1 * num2;
+        resultado /= 2;
+        JOptionPane.showMessageDialog(null, "El resultado es: " + resultado);
+        return resultado;
     }
 
-    public int dividirEnteros(int numero1, int numero2) {
-        if (numero2 == 0) {
-            System.out.println("No se puede dividir por cero");
-        }
-        return (numero1 / numero2) / 2;
+    @Override
+    public int dividirEnteros(int num1, int num2) {
+        int resultado = num1 / num2;
+        resultado /= 2;
+        JOptionPane.showMessageDialog(null, "El resultado es: " + resultado);
+        return resultado;
     }
 
-    public double calcularRaizCuadrada(int numero1) {
-        if (numero1 < 0) {
-            throw new IllegalArgumentException("No se puede calcular la raíz cuadrada de un número negativo");
-        }
-        return Math.sqrt(numero1) / 2;
+    @Override
+    public double calcularRaizCuadrada(int num) {
+        double resultado = Math.sqrt(num);
+        resultado /= 2;
+        JOptionPane.showMessageDialog(null, "El resultado es: " + resultado);
+        return resultado;
     }
 }

@@ -1,40 +1,50 @@
-
-
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class ClienteCalculadoraNormal {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        CalculadoraNormal calculadora = new CalculadoraNormal();
-
-        System.out.print("Ingrese el primer número: ");
-        int numero1 = scanner.nextInt();
-
-        System.out.print("Ingrese el segundo número: ");
-        int numero2 = scanner.nextInt();
-
-        int suma = calculadora.sumarEnteros(numero1, numero2);
-        System.out.println("La suma de " + numero1 + " y " + numero2 + " es " + suma);
-
-        int resta = calculadora.restarEnteros(numero1, numero2);
-        System.out.println("La resta de " + numero1 + " y " + numero2 + " es " + resta);
-
-        int multiplicacion = calculadora.multiplicarEnteros(numero1, numero2);
-        System.out.println("La multiplicación de " + numero1 + " y " + numero2 + " es " + multiplicacion);
-
-        try {
-            int division = calculadora.dividirEnteros(numero1, numero2);
-            System.out.println("La división de " + numero1 + " entre " + numero2 + " es " + division);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-
-        try {
-            double raizCuadrada = calculadora.calcularRaizCuadrada(numero1);
-            System.out.println("La raíz cuadrada de " + numero1 + " es " + raizCuadrada);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        // Crear objeto de la calculadora normal
+        CalculadoraNormal calcNormal = new CalculadoraNormal();
+        
+        // Solicitar al usuario los números a sumar
+        int num1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el primer número a sumar:"));
+        int num2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el segundo número a sumar:"));
+        
+        // Realizar la suma y mostrar el resultado
+        int resultado = calcNormal.sumarEnteros(num1, num2);
+        JOptionPane.showMessageDialog(null, "El resultado de la suma es: " + resultado);
+        
+        // Solicitar al usuario los números a restar
+        num1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el primer número a restar:"));
+        num2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el segundo número a restar:"));
+        
+        // Realizar la resta y mostrar el resultado
+        resultado = calcNormal.restarEnteros(num1, num2);
+        JOptionPane.showMessageDialog(null, "El resultado de la resta es: " + resultado);
+        
+        // Solicitar al usuario los números a multiplicar
+        num1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el primer número a multiplicar:"));
+        num2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el segundo número a multiplicar:"));
+        
+        // Realizar la multiplicación y mostrar el resultado
+        resultado = calcNormal.multiplicarEnteros(num1, num2);
+        JOptionPane.showMessageDialog(null, "El resultado de la multiplicación es: " + resultado);
+        
+        // Solicitar al usuario los números a dividir
+        num1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el primer número a dividir:"));
+        num2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el segundo número a dividir:"));
+        
+        // Realizar la división y mostrar el resultado
+        resultado = calcNormal.dividirEnteros(num1, num2);
+        JOptionPane.showMessageDialog(null, "El resultado de la división es: " + resultado);
+        
+        // Solicitar al usuario el número para calcular su raíz cuadrada
+        num1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número para calcular su raíz cuadrada:"));
+        
+        // Calcular la raíz cuadrada y mostrar el resultado
+        double resultadoRaiz = calcNormal.calcularRaizCuadrada(num1);
+        JOptionPane.showMessageDialog(null, "El resultado de la raíz cuadrada es: " + resultadoRaiz);
     }
+
 }
+

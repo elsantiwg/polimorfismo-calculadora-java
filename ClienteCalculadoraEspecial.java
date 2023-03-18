@@ -1,38 +1,33 @@
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class ClienteCalculadoraEspecial {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // Crear instancia de la calculadora especial
         CalculadoraEspecial calculadora = new CalculadoraEspecial();
 
-        System.out.print("Ingrese el primer número: ");
-        int numero1 = scanner.nextInt();
+        // Pedir los números para realizar las operaciones
+        String num1String = JOptionPane.showInputDialog(null, "Ingrese el primer número:");
+        String num2String = JOptionPane.showInputDialog(null, "Ingrese el segundo número:");
 
-        System.out.print("Ingrese el segundo número: ");
-        int numero2 = scanner.nextInt();
+        // Convertir los números ingresados a enteros
+        int num1 = Integer.parseInt(num1String);
+        int num2 = Integer.parseInt(num2String);
 
-        int suma = calculadora.sumarEnteros(numero1, numero2);
-        System.out.println("La suma de " + numero1 + " y " + numero2 + " dividida entre 2 es " + suma);
+        // Realizar operaciones con la calculadora especial
+        int suma = calculadora.sumarEnteros(num1, num2);
+        int resta = calculadora.restarEnteros(num1, num2);
+        int multiplicacion = calculadora.multiplicarEnteros(num1, num2);
+        int division = calculadora.dividirEnteros(num1, num2);
+        double raizCuadrada = calculadora.calcularRaizCuadrada(num1);
 
-        int resta = calculadora.restarEnteros(numero1, numero2);
-        System.out.println("La resta de " + numero1 + " y " + numero2 + " dividida entre 2 es " + resta);
-
-        int multiplicacion = calculadora.multiplicarEnteros(numero1, numero2);
-        System.out.println("La multiplicación de " + numero1 + " y " + numero2 + " dividida entre 2 es " + multiplicacion);
-
-        try {
-            int division = calculadora.dividirEnteros(numero1, numero2);
-            System.out.println("La división de " + numero1 + " entre " + numero2 + " dividida entre 2 es " + division);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-
-        try {
-            double raizCuadrada = calculadora.calcularRaizCuadrada(numero1);
-            System.out.println("La raíz cuadrada de " + numero1 + " dividida entre 2 es " + raizCuadrada);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        // Mostrar los resultados de las operaciones
+        JOptionPane.showMessageDialog(null, "Resultados de la calculadora especial:\n" +
+                                            "Suma: " + suma + "\n" +
+                                            "Resta: " + resta + "\n" +
+                                            "Multiplicación: " + multiplicacion + "\n" +
+                                            "División: " + division + "\n" +
+                                            "Raíz cuadrada de " + num1 + ": " + raizCuadrada/2);
     }
-}
 
+}
